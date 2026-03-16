@@ -9,7 +9,9 @@ export default function CustomCursor() {
   const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
-    // Hide default cursor
+    // Only show custom cursor on devices with a precise pointer (mouse/trackpad)
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+
     document.body.style.cursor = "none";
 
     const onMove = (e: MouseEvent) => setPos({ x: e.clientX, y: e.clientY });

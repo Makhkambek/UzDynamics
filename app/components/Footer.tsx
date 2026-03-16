@@ -31,7 +31,7 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <a href="#" className="flex items-center gap-2 mb-3">
+            <a href="/" className="flex items-center gap-2 mb-3">
               <span className="text-[#00ff88]/60 text-xs tracking-widest">UZD://</span>
               <span className="font-display text-2xl text-[#00ff88] glow tracking-widest">
                 UZDYNAMICS

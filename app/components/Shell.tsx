@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useEffect, useLayoutEffect } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence } from "framer-motion";
 import PageLoader from "./PageLoader";
 import CustomCursor from "./CustomCursor";
@@ -12,6 +13,7 @@ let _alreadyLoaded = false;
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
   // Initialise from module flag — so even if React remounts Shell, we skip the loader
   const [loaded, setLoaded] = useState(_alreadyLoaded);
 
@@ -35,7 +37,15 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     if (!window.location.hash) window.scrollTo(0, 0);
   }, []);
 
-  // Smooth wheel scroll via lerp
+  // Reset scroll to top on every page navigation (pathname change)
+  useEffect(() => {
+    if (!window.location.hash) {
+      window.dispatchEvent(new CustomEvent("uzd:scroll-to", { detail: { y: 0 } }));
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  // All scroll logic in one effect so targetY is shared across wheel, anchors, and BackToTop
   useEffect(() => {
     let targetY  = window.scrollY;
     let currentY = window.scrollY;
@@ -47,9 +57,12 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       window.scrollTo(0, currentY);
       if (Math.abs(targetY - currentY) > 0.5) {
         rafId = requestAnimationFrame(loop);
+      } else {
+        currentY = targetY;
       }
     };
 
+    // Wheel: accumulate into targetY, lerp handles the actual movement
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       targetY = Math.max(0, Math.min(targetY + e.deltaY * 1.2, maxY()));
@@ -57,16 +70,8 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       rafId = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("wheel", onWheel, { passive: false });
-    return () => {
-      window.removeEventListener("wheel", onWheel);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
-
-  // Slow smooth scroll for anchor links
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
+    // Anchor links: update targetY so lerp stays in sync
+    const onAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest("a[href^='#']") as HTMLAnchorElement | null;
       if (!anchor) return;
@@ -75,21 +80,31 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       const el = document.getElementById(id);
       if (!el) return;
       e.preventDefault();
-      const start    = window.scrollY;
-      const end      = el.getBoundingClientRect().top + window.scrollY;
-      const duration = 800;
-      const startTime = performance.now();
-      const ease = (t: number) => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-      const step = (now: number) => {
-        const elapsed  = now - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, start + (end - start) * ease(progress));
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
+      targetY = Math.max(0, Math.min(
+        el.getBoundingClientRect().top + window.scrollY,
+        maxY()
+      ));
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(loop);
     };
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+
+    // External scroll requests (e.g. BackToTop) — dispatches uzd:scroll-to with { y }
+    const onScrollTo = (e: Event) => {
+      targetY = Math.max(0, Math.min((e as CustomEvent<{ y: number }>).detail.y, maxY()));
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(loop);
+    };
+
+    window.addEventListener("wheel",          onWheel,      { passive: false });
+    document.addEventListener("click",        onAnchorClick);
+    window.addEventListener("uzd:scroll-to",  onScrollTo);
+
+    return () => {
+      window.removeEventListener("wheel",         onWheel);
+      document.removeEventListener("click",       onAnchorClick);
+      window.removeEventListener("uzd:scroll-to", onScrollTo);
+      cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (

@@ -50,7 +50,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <span className="text-[#00ff88]/50 text-xs tracking-widest">UZD://</span>
           <span className="font-display text-2xl text-[#00ff88] glow tracking-widest">
             UZDYNAMICS

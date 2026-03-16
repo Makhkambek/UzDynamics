@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import projects from "@/app/data/projects";
+import Navbar from "@/app/components/Navbar";
 
 interface Props {
   params: { id: string };
@@ -40,7 +41,9 @@ export default function ProjectPage({ params }: Props) {
   const isClassified = project.status === "CLASSIFIED";
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] font-mono px-6 py-32">
+    <main className="min-h-screen bg-[#0a0a0a] font-mono">
+      <Navbar />
+    <div className="px-6 py-32">
       <div className="max-w-4xl mx-auto">
 
         {/* Breadcrumb */}
@@ -189,6 +192,7 @@ export default function ProjectPage({ params }: Props) {
         </div>
 
       </div>
+    </div>
     </main>
   );
 }
