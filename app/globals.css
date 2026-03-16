@@ -3,17 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary:   #0a0a0a;
-  --bg-card:      #111111;
-  --bg-hover:     #1a1a1a;
-  --text-primary: #e5e5e5;
-  --text-muted:   #666666;
-  --text-dim:     #404040;
-  --accent:       #00ff41;
-  --accent-dim:   #00aa33;
-  --amber:        #ffb000;
-  --danger:       #ff3333;
-  --border:       #222222;
+  --green: #00ff88;
+  --green-dim: #00aa55;
+  --green-dark: #003322;
+  --red: #ff3366;
+  --amber: #ffaa00;
+  --bg: #0a0a0a;
 }
 
 * { box-sizing: border-box; }
@@ -24,27 +19,27 @@ html { scroll-behavior: auto; }
 }
 
 body {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: var(--font-inter), -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--font-share-tech), "Courier New", monospace;
   overflow-x: hidden;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #00ff4140; }
-::-webkit-scrollbar-thumb:hover { background: #00ff41; }
+::-webkit-scrollbar-thumb { background: #00ff8840; }
+::-webkit-scrollbar-thumb:hover { background: #00ff88; }
 
 /* Selection */
-::selection { background: #00ff4120; color: #00ff41; }
+::selection { background: #00ff8820; color: #00ff88; }
 
 /* Phosphor glow */
 .glow {
-  text-shadow: 0 0 8px #00ff41, 0 0 20px #00ff4170, 0 0 40px #00ff4130;
+  text-shadow: 0 0 8px #00ff88, 0 0 20px #00ff8870, 0 0 40px #00ff8830;
 }
-.glow-sm  { text-shadow: 0 0 6px #00ff4180; }
-.glow-red { text-shadow: 0 0 8px #ff3333, 0 0 20px #ff333380; }
+.glow-sm { text-shadow: 0 0 6px #00ff8880; }
+.glow-red { text-shadow: 0 0 8px #ff3366, 0 0 20px #ff336680; }
 
 /* Blinking cursor */
 @keyframes blink {
@@ -76,7 +71,7 @@ body {
   pointer-events: none;
 }
 .glitch-wrap:hover::before {
-  color: #ff3333;
+  color: #ff3366;
   opacity: 0.75;
   animation: glitch-1 0.2s infinite;
 }
@@ -88,16 +83,16 @@ body {
 
 /* Terminal card */
 .term-card {
-  background: #111111;
-  border: 1px solid #00ff4122;
+  background: #0d0d0d;
+  border: 1px solid #00ff8822;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 .term-card:hover {
-  border-color: #00ff4155;
-  box-shadow: 0 0 30px #00ff4115, inset 0 0 20px #00ff4106;
+  border-color: #00ff8855;
+  box-shadow: 0 0 30px #00ff8815, inset 0 0 20px #00ff8806;
 }
 
-/* Corner-bracket card */
+/* Corner-bracket card — adds HUD brackets at top-left and bottom-right */
 .bracket-card {
   position: relative;
 }
@@ -107,7 +102,7 @@ body {
   position: absolute;
   width: 14px;
   height: 14px;
-  border-color: #00ff4155;
+  border-color: #00ff8855;
   border-style: solid;
   pointer-events: none;
   transition: border-color 0.3s, width 0.3s, height 0.3s;
@@ -124,12 +119,12 @@ body {
 .bracket-card:hover::after {
   width: 20px;
   height: 20px;
-  border-color: #00ff4199;
+  border-color: #00ff8899;
 }
 
 /* Dot grid background */
 .dot-grid {
-  background-image: radial-gradient(circle, #00ff4112 1px, transparent 1px);
+  background-image: radial-gradient(circle, #00ff8812 1px, transparent 1px);
   background-size: 28px 28px;
 }
 
@@ -137,7 +132,7 @@ body {
 .section-rule {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #00ff4130 20%, #00ff4130 80%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #00ff8830 20%, #00ff8830 80%, transparent 100%);
 }
 
 /* Scan animation for hover effects */
@@ -163,21 +158,3 @@ body {
   20%, 24%, 55% { opacity: 0.94; }
 }
 .flicker { animation: flicker 10s infinite; }
-
-/* Scanlines overlay */
-.scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 255, 65, 0.02) 2px,
-    rgba(0, 255, 65, 0.02) 4px
-  );
-  pointer-events: none;
-}
-
-/* Terminal font utility */
-.font-terminal { font-family: var(--font-jetbrains), "Fira Code", monospace; }

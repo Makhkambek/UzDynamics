@@ -61,13 +61,13 @@ export default function MatrixRain() {
 
         // Colour + weight — kept very dim
         if (isGlitch) {
-          ctx.fillStyle = "#00ff4170";
+          ctx.fillStyle = "#00ff8870";
           ctx.font = `bold ${fontSize}px monospace`;
         } else if (nearby) {
-          ctx.fillStyle = "#00ff4155";
+          ctx.fillStyle = "#00ff8855";
           ctx.font = `${fontSize}px monospace`;
         } else {
-          ctx.fillStyle = "#00ff4118";
+          ctx.fillStyle = "#00ff8818";
           ctx.font = `${fontSize}px monospace`;
         }
 
@@ -76,7 +76,7 @@ export default function MatrixRain() {
         // Slightly brighter head character
         if (!isGlitch && !nearby) {
           const headChar = chars[Math.floor(Math.random() * chars.length)];
-          ctx.fillStyle  = "#00ff4140";
+          ctx.fillStyle  = "#00ff8840";
           ctx.font       = `${fontSize}px monospace`;
           ctx.fillText(headChar, px, py + fontSize);
         }

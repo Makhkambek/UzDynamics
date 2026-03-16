@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Mono, Inter } from "next/font/google";
+import { VT323, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 import Shell from "./components/Shell";
 
-const jetbrainsMono = JetBrains_Mono({
+const vt323 = VT323({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-vt323",
 });
 
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
+const shareTechMono = Share_Tech_Mono({
+  weight: "400",
   subsets: ["latin"],
-  variable: "--font-space",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-share-tech",
 });
 
 export const metadata: Metadata = {
@@ -29,11 +25,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${jetbrainsMono.variable} ${spaceMono.variable} ${inter.variable}`}
-    >
-      <body className="antialiased bg-[#0a0a0a] text-[#e5e5e5]">
+    <html lang="en" className={`${vt323.variable} ${shareTechMono.variable}`}>
+      <body className="antialiased bg-[#0a0a0a] text-[#00ff88] font-mono flicker">
         {/* CRT Scanlines overlay */}
         <div
           aria-hidden="true"

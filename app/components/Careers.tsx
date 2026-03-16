@@ -86,13 +86,13 @@ const positions: Position[] = [
 ];
 
 const clearanceColor: Record<string, string> = {
-  CONFIDENTIAL: "text-[#ffb000] border-[#ffb000]/30",
-  SECRET:       "text-[#ff3333] border-[#ff3333]/30",
-  TOP_SECRET:   "text-[#ff3333] border-[#ff3333]/30 glow-red",
+  CONFIDENTIAL: "text-[#ffaa00] border-[#ffaa00]/30",
+  SECRET:       "text-[#ff3366] border-[#ff3366]/30",
+  TOP_SECRET:   "text-[#ff3366] border-[#ff3366]/30 glow-red",
 };
 
 const typeColor: Record<string, string> = {
-  FULL_TIME: "text-[#00ff41]/70 border-[#00ff41]/25",
+  FULL_TIME: "text-[#00ff88]/70 border-[#00ff88]/25",
   RESEARCH:  "text-blue-400 border-blue-400/25",
   CONTRACT:  "text-purple-400 border-purple-400/25",
 };
@@ -111,14 +111,14 @@ export default function Careers() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff41]/50 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff88]/50 text-xs tracking-widest mb-2">
             ── SECTION 07 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff41]">grep -r &quot;HIRING&quot; /var/jobs/ --open-only</span>
+            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff88]">grep -r &quot;HIRING&quot; /var/jobs/ --open-only</span>
           </div>
-          <div className="text-[#00ff41]/40 text-xs">
+          <div className="text-[#00ff88]/40 text-xs">
             {positions.length} open positions · clearance may be required
           </div>
         </motion.div>
@@ -143,7 +143,7 @@ export default function Careers() {
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-[10px] border border-[#00ff41]/20 text-[#00ff41]/50 px-1.5 tracking-widest">
+                        <span className="text-[10px] border border-[#00ff88]/20 text-[#00ff88]/50 px-1.5 tracking-widest">
                           {pos.id}
                         </span>
                         <span className={`text-[10px] border px-1.5 tracking-widest ${clearanceColor[pos.clearance]}`}>
@@ -153,16 +153,16 @@ export default function Careers() {
                           {pos.type}
                         </span>
                       </div>
-                      <h3 className="text-[#00ff41] text-sm tracking-widest mb-1 group-hover:glow-sm transition-all">
+                      <h3 className="text-[#00ff88] text-sm tracking-widest mb-1 group-hover:glow-sm transition-all">
                         {pos.title}
                       </h3>
-                      <div className="flex flex-wrap gap-3 text-[10px] text-[#00ff41]/45 tracking-wider">
+                      <div className="flex flex-wrap gap-3 text-[10px] text-[#00ff88]/45 tracking-wider">
                         <span>DIV/{pos.division}</span>
                         <span>·</span>
                         <span>{pos.location}</span>
                       </div>
                     </div>
-                    <span className={`text-xs text-[#00ff41]/40 tracking-widest transition-transform duration-300 ${isOpen ? "rotate-90" : ""}`}>
+                    <span className={`text-xs text-[#00ff88]/40 tracking-widest transition-transform duration-300 ${isOpen ? "rotate-90" : ""}`}>
                       ▶
                     </span>
                   </div>
@@ -178,18 +178,18 @@ export default function Careers() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 pb-5 border-t border-[#00ff41]/10">
-                        <p className="text-[#e5e5e5]/60 font-sans text-xs leading-5 mt-4 mb-4">
+                      <div className="px-5 pb-5 border-t border-[#00ff88]/10">
+                        <p className="text-[#00ff88]/50 text-xs leading-5 mt-4 mb-4">
                           {pos.description}
                         </p>
 
-                        <p className="text-[#00ff41]/70 text-[10px] tracking-widest mb-2">
+                        <p className="text-[#00ff88]/70 text-[10px] tracking-widest mb-2">
                           REQUIREMENTS:
                         </p>
                         <ul className="space-y-1 mb-5">
                           {pos.requirements.map((req, ri) => (
-                            <li key={ri} className="text-[#e5e5e5]/50 font-sans text-xs flex gap-2">
-                              <span className="text-[#00ff41]/30 flex-shrink-0">─</span>
+                            <li key={ri} className="text-[#00ff88]/45 text-xs flex gap-2">
+                              <span className="text-[#00ff88]/30 flex-shrink-0">─</span>
                               {req}
                             </li>
                           ))}
@@ -199,7 +199,7 @@ export default function Careers() {
                           onClick={() => {
                             window.location.href = "#contact";
                           }}
-                          className="text-[10px] border border-[#00ff41]/40 text-[#00ff41]/70 px-5 py-2 tracking-[0.2em] hover:border-[#00ff41] hover:text-[#00ff41] hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-200"
+                          className="text-[10px] border border-[#00ff88]/40 text-[#00ff88]/70 px-5 py-2 tracking-[0.2em] hover:border-[#00ff88] hover:text-[#00ff88] hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-200"
                         >
                           APPLY_NOW →
                         </button>
@@ -217,7 +217,7 @@ export default function Careers() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-8 text-center text-[10px] text-[#00ff41]/30 tracking-widest"
+          className="mt-8 text-center text-[10px] text-[#00ff88]/30 tracking-widest"
         >
           ── DON&apos;T SEE YOUR ROLE? SEND YOUR PROFILE TO: jobs@uzdynamics.uz ──
         </motion.div>

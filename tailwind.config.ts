@@ -9,20 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg:     "#0a0a0a",
-        card:   "#111111",
-        hover:  "#1a1a1a",
-        accent: "#00ff41",
-        muted:  "#666666",
-        dim:    "#404040",
-        danger: "#ff3333",
-        amber:  "#ffb000",
-        border: "#222222",
+        background: "#0a0a0a",
+        card: "#0d0d0d",
+        accent: "#00ff88",
+        danger: "#ff3366",
+        warning: "#ffaa00",
       },
       fontFamily: {
-        sans:    ["var(--font-inter)", "-apple-system", "sans-serif"],
-        mono:    ["var(--font-jetbrains)", "'Fira Code'", "monospace"],
-        display: ["var(--font-space)", "monospace"],
+        display: ["var(--font-vt323)", "monospace"],
+        mono: ["var(--font-share-tech)", "'Courier New'", "monospace"],
       },
     },
   },

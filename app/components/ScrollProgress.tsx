@@ -16,12 +16,12 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-[2px] z-[9996] bg-[#00ff41]/10">
+    <div className="fixed top-0 left-0 w-full h-[2px] z-[9996] bg-[#00ff88]/10">
       <div
-        className="h-full bg-[#00ff41] transition-all duration-75"
+        className="h-full bg-[#00ff88] transition-all duration-75"
         style={{
           width: `${progress}%`,
-          boxShadow: "0 0 8px #00ff41, 0 0 16px #00ff4160",
+          boxShadow: "0 0 8px #00ff88, 0 0 16px #00ff8860",
         }}
       />
     </div>

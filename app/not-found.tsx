@@ -40,10 +40,10 @@ export default function NotFound() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <p className="font-display text-[8rem] md:text-[12rem] text-[#ff3333] leading-none tracking-widest glow-red text-center select-none">
+          <p className="font-display text-[8rem] md:text-[12rem] text-[#ff3366] leading-none tracking-widest glow-red text-center select-none">
             404
           </p>
-          <p className="text-center text-[#ff3333]/70 text-xs tracking-[0.4em] -mt-2">
+          <p className="text-center text-[#ff3366]/70 text-xs tracking-[0.4em] -mt-2">
             RESOURCE_NOT_FOUND · ACCESS_DENIED
           </p>
         </motion.div>
@@ -58,10 +58,10 @@ export default function NotFound() {
               transition={{ duration: 0.15 }}
               className={`text-xs tracking-wide leading-6 ${
                 i === 1 || i === 4
-                  ? "text-[#ff3333]"
+                  ? "text-[#ff3366]"
                   : i === visible - 1
-                  ? "text-[#00ff41]"
-                  : "text-[#00ff41]/50"
+                  ? "text-[#00ff88]"
+                  : "text-[#00ff88]/50"
               }`}
             >
               {line}
@@ -82,7 +82,7 @@ export default function NotFound() {
           >
             <Link
               href="/"
-              className="inline-flex items-center gap-3 border border-[#00ff41]/50 px-8 py-3 text-[#00ff41] text-xs tracking-[0.25em] hover:bg-[#00ff41] hover:text-black hover:border-[#00ff41] transition-all duration-200 hover:shadow-[0_0_25px_rgba(0,255,136,0.4)]"
+              className="inline-flex items-center gap-3 border border-[#00ff88]/50 px-8 py-3 text-[#00ff88] text-xs tracking-[0.25em] hover:bg-[#00ff88] hover:text-black hover:border-[#00ff88] transition-all duration-200 hover:shadow-[0_0_25px_rgba(0,255,136,0.4)]"
             >
               &gt;_ RETURN_TO_BASE
             </Link>

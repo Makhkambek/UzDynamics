@@ -44,15 +44,15 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 w-full z-50 font-mono transition-all duration-300 ${
         scrolled
-          ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#00ff41]/15"
+          ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#00ff88]/15"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <span className="text-[#00ff41]/50 text-xs tracking-widest">UZD://</span>
-          <span className="font-display text-2xl text-[#00ff41] glow tracking-widest">
+          <span className="text-[#00ff88]/50 text-xs tracking-widest">UZD://</span>
+          <span className="font-display text-2xl text-[#00ff88] glow tracking-widest">
             UZDYNAMICS
           </span>
         </a>
@@ -67,8 +67,8 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-xs tracking-widest transition-all duration-200 ${
                   isActive
-                    ? "text-[#00ff41] glow-sm"
-                    : "text-[#00ff41]/45 hover:text-[#00ff41]"
+                    ? "text-[#00ff88] glow-sm"
+                    : "text-[#00ff88]/45 hover:text-[#00ff88]"
                 }`}
               >
                 {isActive && <span className="mr-1 blink">▶</span>}
@@ -76,8 +76,8 @@ export default function Navbar() {
               </a>
             );
           })}
-          <div className="flex items-center gap-2 text-[10px] text-[#00ff41]/45 border border-[#00ff41]/15 px-3 py-1.5 tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff41] glow-sm blink" />
+          <div className="flex items-center gap-2 text-[10px] text-[#00ff88]/45 border border-[#00ff88]/15 px-3 py-1.5 tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] glow-sm blink" />
             SYS:ONLINE
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-[#00ff41]/70 text-xs border border-[#00ff41]/25 px-3 py-2 hover:border-[#00ff41]/60 hover:text-[#00ff41] transition-all"
+          className="md:hidden text-[#00ff88]/70 text-xs border border-[#00ff88]/25 px-3 py-2 hover:border-[#00ff88]/60 hover:text-[#00ff88] transition-all"
         >
           {menuOpen ? "[CLOSE]" : "[MENU]"}
         </button>
@@ -96,7 +96,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#0a0a0a]/98 border-b border-[#00ff41]/10 px-6 py-6 space-y-4"
+          className="md:hidden bg-[#0a0a0a]/98 border-b border-[#00ff88]/10 px-6 py-6 space-y-4"
         >
           {NAV_LINKS.map((link) => {
             const isActive = activeId === link.id;
@@ -106,10 +106,10 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className={`flex items-center gap-3 text-sm tracking-widest py-1 transition-colors ${
-                  isActive ? "text-[#00ff41]" : "text-[#00ff41]/60 hover:text-[#00ff41]"
+                  isActive ? "text-[#00ff88]" : "text-[#00ff88]/60 hover:text-[#00ff88]"
                 }`}
               >
-                <span className={isActive ? "text-[#00ff41]" : "text-[#00ff41]/30"}>&gt;</span>
+                <span className={isActive ? "text-[#00ff88]" : "text-[#00ff88]/30"}>&gt;</span>
                 {link.label}
               </a>
             );

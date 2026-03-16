@@ -171,7 +171,7 @@ export default function CLIEasterEgg() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed bottom-20 left-6 z-40 text-[#00ff41]/20 text-[10px] tracking-widest font-mono select-none pointer-events-none hidden md:block"
+            className="fixed bottom-20 left-6 z-40 text-[#00ff88]/20 text-[10px] tracking-widest font-mono select-none pointer-events-none hidden md:block"
           >
             [` ] OPEN_TERMINAL
           </motion.div>
@@ -198,20 +198,20 @@ export default function CLIEasterEgg() {
               style={{ boxShadow: "0 0 60px rgba(0,255,136,0.15)" }}
             >
               {/* Title bar */}
-              <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff41]/15 bg-[#0d0d0d] flex-shrink-0">
+              <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff88]/15 bg-[#0d0d0d] flex-shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="flex gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#ff3333]/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#ffb000]/60" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00ff41]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ff3366]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#ffaa00]/60" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#00ff88]/60" />
                   </div>
-                  <span className="text-[10px] text-[#00ff41]/50 tracking-widest">
+                  <span className="text-[10px] text-[#00ff88]/50 tracking-widest">
                     root@uzdynamics — bash — 80×24
                   </span>
                 </div>
                 <button
                   onClick={close}
-                  className="text-[10px] text-[#00ff41]/40 hover:text-[#00ff41] tracking-widest transition-colors"
+                  className="text-[10px] text-[#00ff88]/40 hover:text-[#00ff88] tracking-widest transition-colors"
                 >
                   [ESC]
                 </button>
@@ -224,12 +224,12 @@ export default function CLIEasterEgg() {
                     key={i}
                     className={
                       line.type === "input"
-                        ? "text-[#00ff41] tracking-wider"
+                        ? "text-[#00ff88] tracking-wider"
                         : line.type === "error"
-                        ? "text-[#ff3333]/80"
+                        ? "text-[#ff3366]/80"
                         : line.type === "success"
-                        ? "text-[#00ff41] glow-sm"
-                        : "text-[#00ff41]/55"
+                        ? "text-[#00ff88] glow-sm"
+                        : "text-[#00ff88]/55"
                     }
                   >
                     {line.text || "\u00a0"}
@@ -239,8 +239,8 @@ export default function CLIEasterEgg() {
               </div>
 
               {/* Input row */}
-              <div className="flex-shrink-0 border-t border-[#00ff41]/10 px-4 py-3 flex items-center gap-2 bg-[#0d0d0d]">
-                <span className="text-[#00ff41]/55 text-xs whitespace-nowrap">
+              <div className="flex-shrink-0 border-t border-[#00ff88]/10 px-4 py-3 flex items-center gap-2 bg-[#0d0d0d]">
+                <span className="text-[#00ff88]/55 text-xs whitespace-nowrap">
                   root@uzdynamics:~$
                 </span>
                 <input
@@ -251,11 +251,11 @@ export default function CLIEasterEgg() {
                     if (e.key === "Enter") submit();
                     if (e.key === "`") { e.preventDefault(); close(); }
                   }}
-                  className="flex-1 bg-transparent text-[#00ff41] text-xs outline-none tracking-wider caret-[#00ff41] font-mono"
+                  className="flex-1 bg-transparent text-[#00ff88] text-xs outline-none tracking-wider caret-[#00ff88] font-mono"
                   autoComplete="off"
                   spellCheck={false}
                 />
-                <span className="text-[#00ff41] text-xs blink">█</span>
+                <span className="text-[#00ff88] text-xs blink">█</span>
               </div>
             </motion.div>
           </motion.div>
