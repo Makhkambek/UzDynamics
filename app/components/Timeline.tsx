@@ -71,15 +71,15 @@ const milestones: Milestone[] = [
 ];
 
 const statusColor: Record<string, string> = {
-  COMPLETE:   "text-[#00ff88]/60",
-  ACTIVE:     "text-[#00ff88] glow-sm",
-  CLASSIFIED: "text-[#ff3366] glow-red",
+  COMPLETE:   "text-[#00ff41]/60",
+  ACTIVE:     "text-[#00ff41] glow-sm",
+  CLASSIFIED: "text-[#ff3333] glow-red",
 };
 
 const statusDot: Record<string, string> = {
-  COMPLETE:   "bg-[#00ff88]/40",
-  ACTIVE:     "bg-[#00ff88] glow-sm",
-  CLASSIFIED: "bg-[#ff3366]",
+  COMPLETE:   "bg-[#00ff41]/40",
+  ACTIVE:     "bg-[#00ff41] glow-sm",
+  CLASSIFIED: "bg-[#ff3333]",
 };
 
 export default function Timeline() {
@@ -94,21 +94,21 @@ export default function Timeline() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/50 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/50 text-xs tracking-widest mb-2">
             ── SECTION 06 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">git log --oneline --graph --all</span>
+            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">git log --oneline --graph --all</span>
           </div>
-          <div className="text-[#00ff88]/40 text-xs">
+          <div className="text-[#00ff41]/40 text-xs">
             {milestones.length} commits · branch: main · HEAD → CURRENT_OPERATIONS
           </div>
         </motion.div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[88px] top-0 bottom-0 w-px bg-[#00ff88]/12 hidden sm:block" />
+          <div className="absolute left-[88px] top-0 bottom-0 w-px bg-[#00ff41]/12 hidden sm:block" />
 
           <div className="space-y-0">
             {milestones.map((m, i) => (
@@ -122,8 +122,8 @@ export default function Timeline() {
               >
                 {/* Date column */}
                 <div className="flex-shrink-0 w-20 sm:w-[88px] text-right pr-4 pt-0.5">
-                  <p className="text-[#00ff88]/70 text-xs tracking-widest">{m.year}</p>
-                  <p className="text-[#00ff88]/40 text-[10px] tracking-widest">{m.month}</p>
+                  <p className="text-[#00ff41]/70 text-xs tracking-widest">{m.year}</p>
+                  <p className="text-[#00ff41]/40 text-[10px] tracking-widest">{m.month}</p>
                 </div>
 
                 {/* Timeline node */}
@@ -132,22 +132,22 @@ export default function Timeline() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 term-card p-4 group-hover:border-[#00ff88]/30 transition-colors">
+                <div className="flex-1 term-card p-4 group-hover:border-[#00ff41]/30 transition-colors">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="text-[10px] border border-[#00ff88]/20 text-[#00ff88]/50 px-1.5 tracking-widest">
+                    <span className="text-[10px] border border-[#00ff41]/20 text-[#00ff41]/50 px-1.5 tracking-widest">
                       {m.code}
                     </span>
                     <span className={`text-[10px] tracking-widest ${statusColor[m.status]}`}>
                       [{m.status}]
                     </span>
                   </div>
-                  <h3 className="text-[#00ff88] text-sm tracking-wider mb-2">
+                  <h3 className="text-[#00ff41] text-sm tracking-wider mb-2">
                     {m.status === "ACTIVE" && (
-                      <span className="text-[#00ff88] mr-1 blink">▶</span>
+                      <span className="text-[#00ff41] mr-1 blink">▶</span>
                     )}
                     {m.title}
                   </h3>
-                  <p className="text-[#00ff88]/45 text-xs leading-5">{m.description}</p>
+                  <p className="text-[#00ff41]/45 text-xs leading-5">{m.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -159,7 +159,7 @@ export default function Timeline() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-4 text-center text-[10px] text-[#00ff88]/30 tracking-widest"
+          className="mt-4 text-center text-[10px] text-[#00ff41]/30 tracking-widest"
         >
           ── END_OF_LOG · NEXT_COMMIT: SWARM_V1 · ETA: CLASSIFIED ──
         </motion.div>

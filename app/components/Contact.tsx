@@ -37,14 +37,14 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/40 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/40 text-xs tracking-widest mb-2">
             ── SECTION 04 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/50">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">compose --encrypt --recipient=uzdynamics --tls=1.3</span>
+            <span className="text-[#00ff41]/50">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">compose --encrypt --recipient=uzdynamics --tls=1.3</span>
           </div>
-          <div className="text-[#00ff88]/55 text-xs">
+          <div className="text-[#00ff41]/55 text-xs">
             encryption: AES-256-GCM · channel: SECURE
           </div>
         </motion.div>
@@ -61,7 +61,7 @@ export default function Contact() {
           >
             {(["name", "email"] as const).map((field) => (
               <div key={field}>
-                <label className="block text-[10px] text-[#00ff88]/70 tracking-[0.3em] uppercase mb-2">
+                <label className="block text-[10px] text-[#00ff41]/70 tracking-[0.3em] uppercase mb-2">
                   &gt; {field === "name" ? "SENDER_NAME" : "SENDER_EMAIL"}
                 </label>
                 <input
@@ -70,13 +70,13 @@ export default function Contact() {
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "email" ? "user@domain.mil" : "Your name"}
-                  className="w-full bg-[#080808] border border-[#00ff88]/30 px-4 py-3 text-[#00ff88] text-sm placeholder-[#00ff88]/35 focus:outline-none focus:border-[#00ff88]/60 focus:shadow-[0_0_12px_rgba(0,255,136,0.15)] transition-all duration-200 tracking-wider"
+                  className="w-full bg-[#080808] border border-[#00ff41]/30 px-4 py-3 text-[#00ff41] text-sm placeholder-[#00ff41]/35 focus:outline-none focus:border-[#00ff41]/60 focus:shadow-[0_0_12px_rgba(0,255,136,0.15)] transition-all duration-200 tracking-wider"
                 />
               </div>
             ))}
 
             <div>
-              <label className="block text-[10px] text-[#00ff88]/70 tracking-[0.3em] uppercase mb-2">
+              <label className="block text-[10px] text-[#00ff41]/70 tracking-[0.3em] uppercase mb-2">
                 &gt; MESSAGE_BODY
               </label>
               <textarea
@@ -85,14 +85,14 @@ export default function Contact() {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 placeholder="Describe your mission parameters..."
-                className="w-full bg-[#080808] border border-[#00ff88]/30 px-4 py-3 text-[#00ff88] text-sm placeholder-[#00ff88]/35 focus:outline-none focus:border-[#00ff88]/60 focus:shadow-[0_0_12px_rgba(0,255,136,0.15)] transition-all duration-200 resize-none tracking-wider leading-6"
+                className="w-full bg-[#080808] border border-[#00ff41]/30 px-4 py-3 text-[#00ff41] text-sm placeholder-[#00ff41]/35 focus:outline-none focus:border-[#00ff41]/60 focus:shadow-[0_0_12px_rgba(0,255,136,0.15)] transition-all duration-200 resize-none tracking-wider leading-6"
               />
             </div>
 
             <button
               type="submit"
               disabled={sending}
-              className="w-full py-3 border border-[#00ff88]/50 text-[#00ff88] text-xs tracking-[0.3em] hover:bg-[#00ff88] hover:text-black hover:border-[#00ff88] transition-all duration-200 hover:shadow-[0_0_25px_rgba(0,255,136,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+              className="w-full py-3 border border-[#00ff41]/50 text-[#00ff41] text-xs tracking-[0.3em] hover:bg-[#00ff41] hover:text-black hover:border-[#00ff41] transition-all duration-200 hover:shadow-[0_0_25px_rgba(0,255,136,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
             >
               {sending ? (
                 <>
@@ -107,9 +107,9 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="border border-[#00ff88]/30 bg-[#00ff88]/5 px-4 py-3 text-xs text-[#00ff88] tracking-wider"
+                className="border border-[#00ff41]/30 bg-[#00ff41]/5 px-4 py-3 text-xs text-[#00ff41] tracking-wider"
               >
-                <span className="text-[#00ff88]/50 mr-2">&gt;</span>
+                <span className="text-[#00ff41]/50 mr-2">&gt;</span>
                 TRANSMISSION SENT · ENCRYPTED · DELIVERY CONFIRMED
               </motion.div>
             )}
@@ -131,21 +131,21 @@ export default function Contact() {
                 { label: "PROTOCOL",  value: "TLS 1.3 · AES-256-GCM" },
               ].map((item) => (
                 <div key={item.label} className="flex gap-4">
-                  <span className="text-[#00ff88]/55 w-24 flex-shrink-0 tracking-widest">{item.label}</span>
-                  <span className="text-[#00ff88]/40">:</span>
-                  <span className="text-[#00ff88]/85">{item.value}</span>
+                  <span className="text-[#00ff41]/55 w-24 flex-shrink-0 tracking-widest">{item.label}</span>
+                  <span className="text-[#00ff41]/40">:</span>
+                  <span className="text-[#00ff41]/85">{item.value}</span>
                 </div>
               ))}
             </div>
 
             <div className="term-card p-6">
-              <p className="text-[10px] text-[#00ff88]/60 tracking-widest mb-4">EXTERNAL_CHANNELS</p>
+              <p className="text-[10px] text-[#00ff41]/60 tracking-widest mb-4">EXTERNAL_CHANNELS</p>
               <div className="flex gap-3 flex-wrap">
                 {["GITHUB", "LINKEDIN", "TWITTER"].map((s) => (
                   <a
                     key={s}
                     href="#"
-                    className="text-[10px] border border-[#00ff88]/35 text-[#00ff88]/65 px-3 py-2 tracking-widest hover:border-[#00ff88]/70 hover:text-[#00ff88] transition-all duration-200"
+                    className="text-[10px] border border-[#00ff41]/35 text-[#00ff41]/65 px-3 py-2 tracking-widest hover:border-[#00ff41]/70 hover:text-[#00ff41] transition-all duration-200"
                   >
                     {s}
                   </a>
@@ -154,13 +154,13 @@ export default function Contact() {
             </div>
 
             {/* Join the team */}
-            <div className="term-card p-4 text-xs text-[#00ff88]/40 leading-5">
-              <span className="text-[#00ff88]/25 mr-2">{'//'}</span>
+            <div className="term-card p-4 text-xs text-[#00ff41]/40 leading-5">
+              <span className="text-[#00ff41]/25 mr-2">{'//'}</span>
               {' Want to join the team? Use the same form or email above — just mention it in your message.'}
             </div>
 
             {/* ASCII border decoration */}
-            <div className="text-[#00ff88]/10 text-[10px] leading-5 select-none">
+            <div className="text-[#00ff41]/10 text-[10px] leading-5 select-none">
               <div>┌────────────────────────────────┐</div>
               <div>│  ALL TRANSMISSIONS ENCRYPTED   │</div>
               <div>│  MONITORED · LOGGED · SECURED  │</div>

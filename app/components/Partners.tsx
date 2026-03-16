@@ -21,13 +21,13 @@ const partners: Partner[] = [
 ];
 
 const typeColor: Record<string, string> = {
-  GOVERNMENT:  "text-[#00ff88]/60 border-[#00ff88]/20",
-  DEFENSE:     "text-[#ff3366]/60 border-[#ff3366]/20",
+  GOVERNMENT:  "text-[#00ff41]/60 border-[#00ff41]/20",
+  DEFENSE:     "text-[#ff3333]/60 border-[#ff3333]/20",
   RESEARCH:    "text-blue-400/60  border-blue-400/20",
   AVIATION:    "text-purple-400/60 border-purple-400/20",
-  ACCELERATOR: "text-[#ffaa00]/60 border-[#ffaa00]/20",
-  INVESTOR:    "text-[#00ff88]/50 border-[#00ff88]/15",
-  PARTNER:     "text-[#00ff88]/50 border-[#00ff88]/15",
+  ACCELERATOR: "text-[#ffb000]/60 border-[#ffb000]/20",
+  INVESTOR:    "text-[#00ff41]/50 border-[#00ff41]/15",
+  PARTNER:     "text-[#00ff41]/50 border-[#00ff41]/15",
 };
 
 function PartnerCard({ partner, delay }: { partner: Partner; delay: number }) {
@@ -49,14 +49,14 @@ function PartnerCard({ partner, delay }: { partner: Partner; delay: number }) {
       />
 
       {/* Logo placeholder — ASCII art block */}
-      <div className="h-14 border border-[#00ff88]/8 flex items-center justify-center bg-[#080808] group-hover:border-[#00ff88]/20 transition-colors relative overflow-hidden">
-        <span className="font-display text-xl text-[#00ff88]/25 tracking-widest group-hover:text-[#00ff88]/45 transition-colors z-10">
+      <div className="h-14 border border-[#00ff41]/8 flex items-center justify-center bg-[#080808] group-hover:border-[#00ff41]/20 transition-colors relative overflow-hidden">
+        <span className="font-display text-xl text-[#00ff41]/25 tracking-widest group-hover:text-[#00ff41]/45 transition-colors z-10">
           {partner.code}
         </span>
       </div>
 
       {/* Name */}
-      <p className="text-[#00ff88]/70 text-[10px] tracking-widest leading-4 text-center">
+      <p className="text-[#00ff41]/70 text-[10px] tracking-widest leading-4 text-center">
         {partner.name}
       </p>
 
@@ -84,14 +84,14 @@ export default function Partners() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/50 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/50 text-xs tracking-widest mb-2">
             ── SECTION 08 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">cat /etc/trusted_entities.conf</span>
+            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">cat /etc/trusted_entities.conf</span>
           </div>
-          <div className="text-[#00ff88]/40 text-xs">
+          <div className="text-[#00ff41]/40 text-xs">
             {partners.length} verified entities · access level: public
           </div>
         </motion.div>
@@ -106,17 +106,17 @@ export default function Partners() {
         </div>
 
         {/* Scrolling ticker */}
-        <div className="mt-12 border border-[#00ff88]/10 py-3 overflow-hidden relative">
+        <div className="mt-12 border border-[#00ff41]/10 py-3 overflow-hidden relative">
           <div
             ref={tickerRef}
-            className="flex gap-12 text-[#00ff88]/30 text-[10px] tracking-[0.3em] whitespace-nowrap"
+            className="flex gap-12 text-[#00ff41]/30 text-[10px] tracking-[0.3em] whitespace-nowrap"
             style={{
               animation: "ticker 20s linear infinite",
             }}
           >
             {[...partners, ...partners].map((p, i) => (
               <span key={`tick-${i}`} className="flex items-center gap-3">
-                <span className="text-[#00ff88]/50">◆</span>
+                <span className="text-[#00ff41]/50">◆</span>
                 {p.name}
               </span>
             ))}
@@ -128,7 +128,7 @@ export default function Partners() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
-          className="mt-6 text-center text-[10px] text-[#00ff88]/25 tracking-widest"
+          className="mt-6 text-center text-[10px] text-[#00ff41]/25 tracking-widest"
         >
           ── PARTNER_VERIFICATION_COMPLETE · ALL ENTITIES AUTHENTICATED ──
         </motion.div>

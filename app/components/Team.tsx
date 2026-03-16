@@ -35,16 +35,16 @@ export default function Team() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/40 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/40 text-xs tracking-widest mb-2">
             ── SECTION 02 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">
+            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">
               SELECT * FROM personnel WHERE clearance=&apos;ALPHA&apos;;
             </span>
           </div>
-          <div className="text-[#00ff88]/40 text-xs">
+          <div className="text-[#00ff41]/40 text-xs">
             2 rows returned · access level required: ALPHA
           </div>
         </motion.div>
@@ -60,11 +60,11 @@ export default function Team() {
               className="term-card bracket-card group overflow-hidden"
             >
               {/* Top strip — dossier header */}
-              <div className="bg-[#00ff88]/5 border-b border-[#00ff88]/12 px-5 py-2 flex items-center justify-between">
-                <span className="text-[10px] text-[#00ff88]/50 tracking-widest">{member.id}</span>
+              <div className="bg-[#00ff41]/5 border-b border-[#00ff41]/12 px-5 py-2 flex items-center justify-between">
+                <span className="text-[10px] text-[#00ff41]/50 tracking-widest">{member.id}</span>
                 <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00ff88] glow-sm" />
-                  <span className="text-[10px] text-[#00ff88] tracking-widest">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00ff41] glow-sm" />
+                  <span className="text-[10px] text-[#00ff41] tracking-widest">
                     CLEARANCE:{member.clearance}
                   </span>
                 </div>
@@ -74,24 +74,24 @@ export default function Team() {
                 <div className="flex gap-5 mb-5">
                   {/* Avatar — photo placeholder with targeting brackets */}
                   <div className="flex-shrink-0 relative w-20 h-20">
-                    <div className="w-full h-full bg-[#080808] border border-[#00ff88]/20 flex items-center justify-center group-hover:border-[#00ff88]/45 transition-colors dot-grid">
-                      <span className="font-display text-3xl text-[#00ff88]/60 group-hover:text-[#00ff88] transition-colors glow-sm z-10 relative">
+                    <div className="w-full h-full bg-[#080808] border border-[#00ff41]/20 flex items-center justify-center group-hover:border-[#00ff41]/45 transition-colors dot-grid">
+                      <span className="font-display text-3xl text-[#00ff41]/60 group-hover:text-[#00ff41] transition-colors glow-sm z-10 relative">
                         {member.initials}
                       </span>
                     </div>
                     {/* Corner brackets on avatar */}
-                    <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-[#00ff88]/50" />
-                    <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-[#00ff88]/50" />
-                    <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-[#00ff88]/50" />
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-[#00ff88]/50" />
+                    <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-[#00ff41]/50" />
+                    <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-[#00ff41]/50" />
+                    <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-[#00ff41]/50" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-[#00ff41]/50" />
                   </div>
 
                   {/* Name + title */}
                   <div className="flex flex-col justify-center">
-                    <h3 className="font-display text-xl text-[#00ff88] tracking-wider leading-tight mb-1">
+                    <h3 className="font-display text-xl text-[#00ff41] tracking-wider leading-tight mb-1">
                       {member.name}
                     </h3>
-                    <p className="text-[10px] text-[#00ff88]/50 tracking-widest leading-5">
+                    <p className="text-[10px] text-[#00ff41]/50 tracking-widest leading-5">
                       {member.title}
                     </p>
                   </div>
@@ -101,7 +101,7 @@ export default function Team() {
                 <div className="section-rule mb-4" />
 
                 {/* Bio */}
-                <p className="text-[#00ff88]/45 text-xs leading-6 mb-5">
+                <p className="text-[#e5e5e5]/60 font-sans text-xs leading-6 mb-5">
                   {member.bio}
                 </p>
 
@@ -110,7 +110,7 @@ export default function Team() {
                   {member.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-[9px] text-[#00ff88]/60 border border-[#00ff88]/25 px-2 py-1 tracking-widest hover:text-[#00ff88] hover:border-[#00ff88]/55 transition-colors"
+                      className="text-[9px] text-[#00ff41]/60 border border-[#00ff41]/25 px-2 py-1 tracking-widest hover:text-[#00ff41] hover:border-[#00ff41]/55 transition-colors"
                     >
                       {skill}
                     </span>

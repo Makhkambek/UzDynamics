@@ -84,21 +84,21 @@ function SkillBar({ tech, delay }: { tech: Tech; delay: number }) {
     <div ref={ref} className="group">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-[#00ff88]/80 tracking-wider">{tech.name}</span>
-          <span className="text-[10px] border border-[#00ff88]/25 text-[#00ff88]/50 px-1.5 py-0 tracking-widest">
+          <span className="text-xs text-[#00ff41]/80 tracking-wider">{tech.name}</span>
+          <span className="text-[10px] border border-[#00ff41]/25 text-[#00ff41]/50 px-1.5 py-0 tracking-widest">
             {tech.tag}
           </span>
         </div>
-        <span className="text-[10px] text-[#00ff88]/60 tracking-widest tabular-nums">
+        <span className="text-[10px] text-[#00ff41]/60 tracking-widest tabular-nums">
           {width}%
         </span>
       </div>
-      <div className="h-1 bg-[#00ff88]/8 w-full overflow-hidden">
+      <div className="h-1 bg-[#00ff41]/8 w-full overflow-hidden">
         <div
-          className="h-full bg-[#00ff88] transition-all duration-1000 ease-out"
+          className="h-full bg-[#00ff41] transition-all duration-1000 ease-out"
           style={{
             width: `${width}%`,
-            boxShadow: "0 0 6px #00ff8880",
+            boxShadow: "0 0 6px #00ff4180",
           }}
         />
       </div>
@@ -118,14 +118,14 @@ export default function Technologies() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/50 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/50 text-xs tracking-widest mb-2">
             ── SECTION 05 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">cat /proc/tech_stack --verbose</span>
+            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">cat /proc/tech_stack --verbose</span>
           </div>
-          <div className="text-[#00ff88]/40 text-xs">
+          <div className="text-[#00ff41]/40 text-xs">
             scanning installed modules · 16 packages detected
           </div>
         </motion.div>
@@ -141,11 +141,11 @@ export default function Technologies() {
               className="term-card p-6"
             >
               {/* Card header */}
-              <div className="mb-5 pb-3 border-b border-[#00ff88]/10">
-                <p className="text-[#00ff88]/40 text-[10px] tracking-widest mb-1">
+              <div className="mb-5 pb-3 border-b border-[#00ff41]/10">
+                <p className="text-[#00ff41]/40 text-[10px] tracking-widest mb-1">
                   root@uzdynamics:~$ {cat.cmd}
                 </p>
-                <p className="text-[#00ff88] text-xs tracking-[0.2em]">
+                <p className="text-[#00ff41] text-xs tracking-[0.2em]">
                   [{cat.label}]
                 </p>
               </div>
@@ -165,7 +165,7 @@ export default function Technologies() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-8 text-center text-[10px] text-[#00ff88]/30 tracking-widest"
+          className="mt-8 text-center text-[10px] text-[#00ff41]/30 tracking-widest"
         >
           ── TECH_STACK_AUDIT_COMPLETE · 16/16 MODULES VERIFIED · ALL SYSTEMS NOMINAL ──
         </motion.div>

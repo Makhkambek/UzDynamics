@@ -42,8 +42,8 @@ export default function CustomCursor() {
 
   const size = hovering ? 1.6 : clicking ? 0.7 : 1;
   const glow = hovering
-    ? "0 0 12px #00ff88, 0 0 24px #00ff8870"
-    : "0 0 6px #00ff88, 0 0 14px #00ff8850";
+    ? "0 0 12px #00ff41, 0 0 24px #00ff4170"
+    : "0 0 6px #00ff41, 0 0 14px #00ff4150";
 
   return (
     <motion.div
@@ -54,7 +54,7 @@ export default function CustomCursor() {
     >
       {/* Center dot */}
       <div
-        className="absolute rounded-full bg-[#00ff88]"
+        className="absolute rounded-full bg-[#00ff41]"
         style={{
           width: 3, height: 3,
           top: "50%", left: "50%",
@@ -64,13 +64,13 @@ export default function CustomCursor() {
       />
       {/* Cross lines */}
       {/* Top */}
-      <div className="absolute bg-[#00ff88]" style={{ width: 1, height: 10, top: -14, left: "50%", transform: "translateX(-50%)", boxShadow: glow }} />
+      <div className="absolute bg-[#00ff41]" style={{ width: 1, height: 10, top: -14, left: "50%", transform: "translateX(-50%)", boxShadow: glow }} />
       {/* Bottom */}
-      <div className="absolute bg-[#00ff88]" style={{ width: 1, height: 10, bottom: -14, left: "50%", transform: "translateX(-50%)", boxShadow: glow }} />
+      <div className="absolute bg-[#00ff41]" style={{ width: 1, height: 10, bottom: -14, left: "50%", transform: "translateX(-50%)", boxShadow: glow }} />
       {/* Left */}
-      <div className="absolute bg-[#00ff88]" style={{ height: 1, width: 10, left: -14, top: "50%", transform: "translateY(-50%)", boxShadow: glow }} />
+      <div className="absolute bg-[#00ff41]" style={{ height: 1, width: 10, left: -14, top: "50%", transform: "translateY(-50%)", boxShadow: glow }} />
       {/* Right */}
-      <div className="absolute bg-[#00ff88]" style={{ height: 1, width: 10, right: -14, top: "50%", transform: "translateY(-50%)", boxShadow: glow }} />
+      <div className="absolute bg-[#00ff41]" style={{ height: 1, width: 10, right: -14, top: "50%", transform: "translateY(-50%)", boxShadow: glow }} />
     </motion.div>
   );
 }

@@ -62,11 +62,11 @@ function StatCard({ stat, delay }: { stat: typeof stats[0]; delay: number }) {
       transition={{ duration: 0.4, delay }}
       className="term-card bracket-card p-6 group"
     >
-      <p className="text-[10px] text-[#00ff88]/55 tracking-widest mb-2">{stat.unit}</p>
-      <p className="font-display text-5xl text-[#00ff88] glow mb-1 group-hover:tracking-wider transition-all duration-300">
+      <p className="text-[10px] text-[#00ff41]/55 tracking-widest mb-2">{stat.unit}</p>
+      <p className="font-display text-5xl text-[#00ff41] glow mb-1 group-hover:tracking-wider transition-all duration-300">
         {count}{stat.suffix}
       </p>
-      <p className="text-[10px] text-[#00ff88]/65 tracking-widest">{stat.key}</p>
+      <p className="text-[10px] text-[#00ff41]/65 tracking-widest">{stat.key}</p>
     </motion.div>
   );
 }
@@ -83,12 +83,12 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <p className="text-[#00ff88]/40 text-xs tracking-widest mb-2">
+          <p className="text-[#00ff41]/40 text-xs tracking-widest mb-2">
             ── SECTION 03 ──────────────────────────────────
           </p>
           <div className="text-sm mb-1">
-            <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">uname -a &amp;&amp; uptime &amp;&amp; sys --info</span>
+            <span className="text-[#00ff41]/55">root@uzdynamics:~$</span>{" "}
+            <span className="text-[#00ff41]">uname -a &amp;&amp; uptime &amp;&amp; sys --info</span>
           </div>
         </motion.div>
 
@@ -111,23 +111,23 @@ export default function About() {
                     transition={{ delay: i * 0.08 }}
                     className="flex gap-4 text-xs"
                   >
-                    <span className="text-[#00ff88]/65 w-20 flex-shrink-0 tracking-wider">{item.label}</span>
-                    <span className="text-[#00ff88]/45 flex-shrink-0">:</span>
-                    <span className="text-[#00ff88]/65">{item.value}</span>
+                    <span className="text-[#00ff41]/65 w-20 flex-shrink-0 tracking-wider">{item.label}</span>
+                    <span className="text-[#00ff41]/45 flex-shrink-0">:</span>
+                    <span className="text-[#00ff41]/65">{item.value}</span>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-            <div className="term-card p-6 text-xs leading-6 text-[#00ff88]/60 space-y-1">
-              <p className="text-[#00ff88]/50">{"/*"}</p>
-              <p className="pl-4">UzDynamics is a defense-tech company engineering</p>
-              <p className="pl-4">autonomous systems for the most demanding ops.</p>
-              <p className="pl-4">Founded in Tashkent — built for the world.</p>
-              <p className="pl-4 text-[#00ff88]/70 italic">
+            <div className="term-card p-6 text-xs leading-6 space-y-1 font-sans">
+              <p className="text-[#00ff41]/50 font-mono">{"/*"}</p>
+              <p className="pl-4 text-[#e5e5e5]/60">UzDynamics is a defense-tech company engineering</p>
+              <p className="pl-4 text-[#e5e5e5]/60">autonomous systems for the most demanding ops.</p>
+              <p className="pl-4 text-[#e5e5e5]/60">Founded in Tashkent — built for the world.</p>
+              <p className="pl-4 text-[#e5e5e5]/80 italic">
                 &ldquo;Engineering precision. Delivering power. Advancing autonomy.&rdquo;
               </p>
-              <p className="text-[#00ff88]/50">{"*/"}</p>
+              <p className="text-[#00ff41]/50 font-mono">{"*/"}</p>
             </div>
           </motion.div>
 
