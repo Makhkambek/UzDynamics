@@ -14,15 +14,24 @@ const BOOT_LINES = [
   { text: "ALL SYSTEMS OPERATIONAL. WELCOME, COMMANDER.",           ms: 3450 },
 ];
 
+let _heroAnimationPlayed = false;
+
 export default function Hero() {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [showMain,     setShowMain]     = useState(false);
+  const [visibleCount, setVisibleCount] = useState(
+    _heroAnimationPlayed ? BOOT_LINES.length : 0
+  );
+  const [showMain, setShowMain] = useState(_heroAnimationPlayed);
 
   useEffect(() => {
+    if (_heroAnimationPlayed) return;
+
     const timers = BOOT_LINES.map((line, i) =>
       setTimeout(() => setVisibleCount(i + 1), line.ms)
     );
-    const mainTimer = setTimeout(() => setShowMain(true), 4050);
+    const mainTimer = setTimeout(() => {
+      _heroAnimationPlayed = true;
+      setShowMain(true);
+    }, 4050);
     return () => [...timers, mainTimer].forEach(clearTimeout);
   }, []);
 

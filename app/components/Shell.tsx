@@ -1,29 +1,38 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useLayoutEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import PageLoader from "./PageLoader";
 import CustomCursor from "./CustomCursor";
 import BackToTop from "./BackToTop";
 
+// Module-level flag — survives React remounts (Strict Mode, etc.) within the same JS session.
+// Resets only when the tab is closed or hard-refreshed.
+let _alreadyLoaded = false;
+
 export default function Shell({ children }: { children: React.ReactNode }) {
-  const [mounted,  setMounted]  = useState(false);
-  // Skip loader if already seen this session
-  const [loaded,   setLoaded]   = useState(false);
+  const [mounted, setMounted] = useState(false);
+  // Initialise from module flag — so even if React remounts Shell, we skip the loader
+  const [loaded, setLoaded] = useState(_alreadyLoaded);
+
+  // Also check sessionStorage as a fallback (handles the case where the module
+  // IS fresh but the user has visited before in this browser tab session)
+  useLayoutEffect(() => {
+    if (!_alreadyLoaded && sessionStorage.getItem("uzd_loaded")) {
+      _alreadyLoaded = true;
+      setLoaded(true);
+    }
+  }, []);
+
   const handleComplete = useCallback(() => {
+    _alreadyLoaded = true;
     sessionStorage.setItem("uzd_loaded", "1");
     setLoaded(true);
   }, []);
 
-  // Wait for full client hydration; skip loader if session already has flag
   useEffect(() => {
     setMounted(true);
-    // Start at top only when there's no anchor in the URL
     if (!window.location.hash) window.scrollTo(0, 0);
-    // If already loaded this session, skip the loader
-    if (sessionStorage.getItem("uzd_loaded")) {
-      setLoaded(true);
-    }
   }, []);
 
   // Smooth wheel scroll via lerp
