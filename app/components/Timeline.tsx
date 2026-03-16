@@ -147,7 +147,7 @@ export default function Timeline() {
                     )}
                     {m.title}
                   </h3>
-                  <p className="text-[#00ff41]/45 text-xs leading-5">{m.description}</p>
+                  <p className="text-[#e5e5e5]/55 font-sans text-xs leading-5">{m.description}</p>
                 </div>
               </motion.div>
             ))}

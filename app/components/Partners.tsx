@@ -56,7 +56,7 @@ function PartnerCard({ partner, delay }: { partner: Partner; delay: number }) {
       </div>
 
       {/* Name */}
-      <p className="text-[#00ff41]/70 text-[10px] tracking-widest leading-4 text-center">
+      <p className="text-[#e5e5e5]/60 font-sans text-[10px] tracking-widest leading-4 text-center">
         {partner.name}
       </p>
 

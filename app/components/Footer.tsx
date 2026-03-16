@@ -37,7 +37,7 @@ export default function Footer() {
                 UZDYNAMICS
               </span>
             </a>
-            <p className="text-[#00ff41]/60 text-xs leading-6 max-w-xs">
+            <p className="text-[#e5e5e5]/55 font-sans text-xs leading-6 max-w-xs">
               Advanced autonomous systems and defense robotics. Engineered in Tashkent.
             </p>
             {/* Status indicator */}
@@ -72,9 +72,9 @@ export default function Footer() {
             <p className="text-[#00ff41] text-xs tracking-[0.3em] uppercase mb-4 border-b border-[#00ff41]/20 pb-2">
               Contact
             </p>
-            <div className="space-y-2 text-xs mb-5">
-              <p className="text-[#00ff41]/70">contact@uzdynamics.uz</p>
-              <p className="text-[#00ff41]/70">Tashkent, Uzbekistan</p>
+            <div className="space-y-2 text-xs mb-5 font-sans">
+              <p className="text-[#e5e5e5]/60">contact@uzdynamics.uz</p>
+              <p className="text-[#e5e5e5]/60">Tashkent, Uzbekistan</p>
             </div>
             <div className="flex gap-3">
               {SOCIALS.map((s) => (

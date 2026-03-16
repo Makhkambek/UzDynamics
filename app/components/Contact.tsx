@@ -133,7 +133,7 @@ export default function Contact() {
                 <div key={item.label} className="flex gap-4">
                   <span className="text-[#00ff41]/55 w-24 flex-shrink-0 tracking-widest">{item.label}</span>
                   <span className="text-[#00ff41]/40">:</span>
-                  <span className="text-[#00ff41]/85">{item.value}</span>
+                  <span className="text-[#e5e5e5]/75 font-sans">{item.value}</span>
                 </div>
               ))}
             </div>
@@ -154,9 +154,9 @@ export default function Contact() {
             </div>
 
             {/* Join the team */}
-            <div className="term-card p-4 text-xs text-[#00ff41]/40 leading-5">
-              <span className="text-[#00ff41]/25 mr-2">{'//'}</span>
-              {' Want to join the team? Use the same form or email above — just mention it in your message.'}
+            <div className="term-card p-4 text-xs leading-5">
+              <span className="text-[#00ff41]/25 mr-2 font-mono">{'//'}</span>
+              <span className="text-[#e5e5e5]/50 font-sans">{' Want to join the team? Use the same form or email above — just mention it in your message.'}</span>
             </div>
 
             {/* ASCII border decoration */}

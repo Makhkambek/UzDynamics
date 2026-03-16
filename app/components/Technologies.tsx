@@ -84,7 +84,7 @@ function SkillBar({ tech, delay }: { tech: Tech; delay: number }) {
     <div ref={ref} className="group">
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
-          <span className="text-xs text-[#00ff41]/80 tracking-wider">{tech.name}</span>
+          <span className="text-xs text-[#e5e5e5]/75 font-sans tracking-wider">{tech.name}</span>
           <span className="text-[10px] border border-[#00ff41]/25 text-[#00ff41]/50 px-1.5 py-0 tracking-widest">
             {tech.tag}
           </span>
