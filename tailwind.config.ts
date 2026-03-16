@@ -9,8 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#0a0a0a",
+        card: "#0d0d0d",
+        accent: "#00ff88",
+        danger: "#ff3366",
+        warning: "#ffaa00",
+      },
+      fontFamily: {
+        display: ["var(--font-vt323)", "monospace"],
+        mono: ["var(--font-share-tech)", "'Courier New'", "monospace"],
       },
     },
   },
