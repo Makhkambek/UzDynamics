@@ -85,6 +85,8 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation menu"
           className="md:hidden text-[#00ff88]/70 text-xs border border-[#00ff88]/25 px-3 py-2 hover:border-[#00ff88]/60 hover:text-[#00ff88] transition-all"
         >
           {menuOpen ? "[CLOSE]" : "[MENU]"}

@@ -115,6 +115,9 @@ export default function CLIEasterEgg() {
   const [input, setInput]     = useState("");
   const inputRef              = useRef<HTMLInputElement>(null);
   const bottomRef             = useRef<HTMLDivElement>(null);
+  const exitTimerRef          = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => { if (exitTimerRef.current) clearTimeout(exitTimerRef.current); }, []);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -132,7 +135,8 @@ export default function CLIEasterEgg() {
 
   useEffect(() => {
     if (open) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+      const t = setTimeout(() => inputRef.current?.focus(), 100);
+      return () => clearTimeout(t);
     }
   }, [open]);
 
@@ -154,7 +158,8 @@ export default function CLIEasterEgg() {
     if (result.length === 1 && result[0].text === "__EXIT__") {
       setLines((prev) => [...prev, inputLine, { type: "output", text: "Session terminated." }]);
       setInput("");
-      setTimeout(() => setOpen(false), 600);
+      if (exitTimerRef.current) clearTimeout(exitTimerRef.current);
+      exitTimerRef.current = setTimeout(() => setOpen(false), 600);
       return;
     }
 

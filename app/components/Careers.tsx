@@ -195,14 +195,12 @@ export default function Careers() {
                           ))}
                         </ul>
 
-                        <button
-                          onClick={() => {
-                            window.location.href = "#contact";
-                          }}
-                          className="text-[10px] border border-[#00ff88]/40 text-[#00ff88]/70 px-5 py-2 tracking-[0.2em] hover:border-[#00ff88] hover:text-[#00ff88] hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-200"
+                        <a
+                          href="#contact"
+                          className="inline-block text-[10px] border border-[#00ff88]/40 text-[#00ff88]/70 px-5 py-2 tracking-[0.2em] hover:border-[#00ff88] hover:text-[#00ff88] hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-200"
                         >
                           APPLY_NOW →
-                        </button>
+                        </a>
                       </div>
                     </motion.div>
                   )}

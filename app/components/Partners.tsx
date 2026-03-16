@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef } from "react";
 
 interface Partner {
   name: string;
@@ -71,8 +70,6 @@ function PartnerCard({ partner, delay }: { partner: Partner; delay: number }) {
 }
 
 export default function Partners() {
-  const tickerRef = useRef<HTMLDivElement>(null);
-
   return (
     <section id="partners" className="py-24 px-6 bg-[#0a0a0a] font-mono overflow-hidden">
       <div className="max-w-6xl mx-auto">
@@ -108,7 +105,6 @@ export default function Partners() {
         {/* Scrolling ticker */}
         <div className="mt-12 border border-[#00ff88]/10 py-3 overflow-hidden relative">
           <div
-            ref={tickerRef}
             className="flex gap-12 text-[#00ff88]/30 text-[10px] tracking-[0.3em] whitespace-nowrap"
             style={{
               animation: "ticker 20s linear infinite",

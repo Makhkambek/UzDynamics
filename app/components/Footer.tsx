@@ -81,6 +81,7 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  aria-label={`${s.label} (coming soon)`}
                   className="text-[10px] border border-[#00ff88]/30 text-[#00ff88]/70 px-3 py-1.5 tracking-widest hover:border-[#00ff88] hover:text-[#00ff88] hover:shadow-[0_0_10px_rgba(0,255,136,0.2)] transition-all duration-200"
                 >
                   {s.label}

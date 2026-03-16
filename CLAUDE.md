@@ -12,14 +12,35 @@
 - Use spread for immutable updates, never mutate directly
 
 ### Task management
-- For large tasks (3+ steps, multiple components): create TaskList first
-- Never start implementing without a visible task list
+**MANDATORY — no exceptions:**
+- ANY task touching 2+ files OR taking 3+ steps MUST start with TaskCreate
+- Create ALL tasks upfront, then work through them one by one: pending → in_progress → completed
+- NEVER write a single line of code before the task list is visible
+- If you skip the task list, stop immediately and create it before continuing
 
-### Agents / Skills
-- `/code-review` — after writing or changing components
+### Workflow — follow this order every time
+1. **TaskCreate** — list every step before starting
+2. **`/plan`** — explain approach, wait for approval
+3. **`/tdd`** — write tests first (if adding new feature)
+4. **Implement** — one file at a time
+5. **`/code-review`** — after every meaningful change
+6. **`npm test`** — run tests, fix if failing
+
+### Git
+- Never run `git commit`, `git push`, or any destructive git command unless explicitly asked
+- Do not suggest or offer to commit/push — wait for the user to say so
+
+### Agents — use automatically, no need to be asked
+- **planner** agent — for any feature that touches architecture
+- **code-reviewer** agent — after writing or changing components
+- **security-reviewer** agent — before any form/API additions
+- **frontend-design** plugin — for UI/UX decisions
+
+### Skills — use automatically
+- `/plan` — before every non-trivial task
 - `/tdd` — before adding new features
-- Use **security-reviewer** agent before any form/API additions
-- Use **frontend-design** plugin for UI/UX decisions
+- `/code-review` — after changes
+- `/checkpoint` — before large refactors
 
 ---
 

@@ -8,11 +8,23 @@ import BackToTop from "./BackToTop";
 
 export default function Shell({ children }: { children: React.ReactNode }) {
   const [mounted,  setMounted]  = useState(false);
+  // Skip loader if already seen this session
   const [loaded,   setLoaded]   = useState(false);
-  const handleComplete          = useCallback(() => setLoaded(true), []);
+  const handleComplete = useCallback(() => {
+    sessionStorage.setItem("uzd_loaded", "1");
+    setLoaded(true);
+  }, []);
 
-  // Wait for full client hydration before mounting the loader
-  useEffect(() => setMounted(true), []);
+  // Wait for full client hydration; skip loader if session already has flag
+  useEffect(() => {
+    setMounted(true);
+    // Start at top only when there's no anchor in the URL
+    if (!window.location.hash) window.scrollTo(0, 0);
+    // If already loaded this session, skip the loader
+    if (sessionStorage.getItem("uzd_loaded")) {
+      setLoaded(true);
+    }
+  }, []);
 
   // Smooth wheel scroll via lerp
   useEffect(() => {

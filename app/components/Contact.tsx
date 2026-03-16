@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 interface FormState {
@@ -10,19 +10,37 @@ interface FormState {
 }
 
 export default function Contact() {
-  const [form, setForm]   = useState<FormState>({ name: "", email: "", message: "" });
-  const [sent, setSent]   = useState(false);
+  const [form, setForm]       = useState<FormState>({ name: "", email: "", message: "" });
+  const [sent, setSent]       = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError]     = useState(false);
+  const sentTimerRef          = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => () => { if (sentTimerRef.current) clearTimeout(sentTimerRef.current); }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      });
+      if (res.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", message: "" });
+        if (sentTimerRef.current) clearTimeout(sentTimerRef.current);
+        sentTimerRef.current = setTimeout(() => setSent(false), 5000);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
       setSending(false);
-      setSent(true);
-      setForm({ name: "", email: "", message: "" });
-      setTimeout(() => setSent(false), 5000);
-    }, 1200);
+    }
   };
 
   return (
@@ -113,6 +131,16 @@ export default function Contact() {
                 TRANSMISSION SENT · ENCRYPTED · DELIVERY CONFIRMED
               </motion.div>
             )}
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="border border-[#ff3366]/30 bg-[#ff3366]/5 px-4 py-3 text-xs text-[#ff3366] tracking-wider"
+              >
+                <span className="text-[#ff3366]/50 mr-2">&gt;</span>
+                TRANSMISSION FAILED · RETRY OR CONTACT DIRECTLY
+              </motion.div>
+            )}
           </motion.form>
 
           {/* Info panel */}
@@ -145,6 +173,7 @@ export default function Contact() {
                   <a
                     key={s}
                     href="#"
+                    aria-label={`${s} (coming soon)`}
                     className="text-[10px] border border-[#00ff88]/35 text-[#00ff88]/65 px-3 py-2 tracking-widest hover:border-[#00ff88]/70 hover:text-[#00ff88] transition-all duration-200"
                   >
                     {s}

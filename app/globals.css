@@ -18,6 +18,14 @@ html { scroll-behavior: auto; }
   cursor: none !important;
 }
 
+/* Restore functional cursors on interactive text elements */
+input, textarea, select {
+  cursor: text !important;
+}
+input[type="submit"], input[type="button"], input[type="reset"], button, a {
+  cursor: none !important;
+}
+
 body {
   background: var(--bg);
   color: var(--green);

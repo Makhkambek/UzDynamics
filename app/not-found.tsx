@@ -16,9 +16,10 @@ export default function NotFound() {
   const [visible, setVisible] = useState(0);
 
   useEffect(() => {
-    LINES.forEach((_, i) => {
-      setTimeout(() => setVisible(i + 1), i * 350 + 300);
-    });
+    const timers = LINES.map((_, i) =>
+      setTimeout(() => setVisible(i + 1), i * 350 + 300)
+    );
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
