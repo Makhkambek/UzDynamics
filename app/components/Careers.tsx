@@ -116,7 +116,7 @@ export default function Careers() {
           </p>
           <div className="text-sm mb-1">
             <span className="text-[#00ff88]/55">root@uzdynamics:~$</span>{" "}
-            <span className="text-[#00ff88]">grep -r "HIRING" /var/jobs/ --open-only</span>
+            <span className="text-[#00ff88]">grep -r &quot;HIRING&quot; /var/jobs/ --open-only</span>
           </div>
           <div className="text-[#00ff88]/40 text-xs">
             {positions.length} open positions · clearance may be required

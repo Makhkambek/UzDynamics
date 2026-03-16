@@ -155,8 +155,8 @@ export default function Contact() {
 
             {/* Join the team */}
             <div className="term-card p-4 text-xs text-[#00ff88]/40 leading-5">
-              <span className="text-[#00ff88]/25 mr-2">//</span>
-              Want to join the team? Use the same form or email above — just mention it in your message.
+              <span className="text-[#00ff88]/25 mr-2">{'//'}</span>
+              {' Want to join the team? Use the same form or email above — just mention it in your message.'}
             </div>
 
             {/* ASCII border decoration */}
